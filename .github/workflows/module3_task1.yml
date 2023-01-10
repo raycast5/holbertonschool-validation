@@ -23,10 +23,9 @@ jobs:
         run: sudo make clean -C module3_task1
 
       - name: test post
-        run:
-          Key: >
-            sudo make POST_NAME=who-are-we POST_TITLE="Who are we"
-            post -C module3_task1
+        run: >
+          sudo make POST_NAME=who-are-we POST_TITLE="Who are we"
+          post -C module3_task1
 
       - name: test help
         run: sudo make help -C module3_task1
