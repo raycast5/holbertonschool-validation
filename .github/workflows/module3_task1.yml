@@ -1,0 +1,32 @@
+name: module3_task1
+
+# Controls when the action will run. Workflow runs on push or daily at 3:15 PM
+on:
+  push:
+  schedule:
+    - cron: '0 15 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+
+      - name: Install required tools
+        run: cd module3_task1 && sudo ./setup.sh
+
+      - name: lint
+        run: sudo make lint -C module3_task1
+        
+      - name: test clean
+        run: sudo make clean -C module3_task1
+
+      - name: test post
+        run: sudo make post -C module3_task1
+
+      - name: test help
+        run: sudo make help -C module3_task1
+
+      - name: test build
+        run: sudo make build -C module3_task1
