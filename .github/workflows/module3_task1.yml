@@ -1,3 +1,4 @@
+---
 name: module3_task1
 
 # Controls when the action will run. Workflow runs on push or daily at 3:15 PM
@@ -18,7 +19,7 @@ jobs:
 
       - name: lint
         run: sudo make lint -C module3_task1
-        
+
       - name: test clean
         run: sudo make clean -C module3_task1
 
