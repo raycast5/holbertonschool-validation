@@ -6,6 +6,7 @@ run: ##  runs the application in background by executing the binary awesome-api
 	./awesome-api >./awesome.log 2>&1 &
 
 clean:	## cleans the directory where website source code is located
+	pkill awesome-api
 	rm -rf ./dist/*
 	rm  -f ./awesome-api ./awesome.log
 
