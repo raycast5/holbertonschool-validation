@@ -1,12 +1,12 @@
-build:	## builds the hugo website and the awesome binary
+build: lint	## builds the hugo website and the awesome binary
 	hugo
 	go build -o awesome-api
 
-run: ##  runs the application in background by executing the binary awesome-api
+run:	make run## runs the application in background by executing the binary awesome-api
 	./awesome-api >./awesome.log 2>&1 &
 
 clean:	## cleans the directory where website source code is located
-	pkill awesome-api
+	-pkill awesome-api
 	rm -rf ./dist/*
 	rm  -f ./awesome-api ./awesome.log
 
@@ -18,7 +18,7 @@ lint:	## lints app before deplyment
 	golangci-lint run ./main.go
 
 stop:	## stops the application
-	pkill awesome-api
+	-pkill awesome-api
 
 test: ## test it to ensure that app behaves as expected
 	curl http://localhost:9999
