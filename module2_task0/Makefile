@@ -14,6 +14,9 @@ post:	## adds posts to website according to env variables
 	hugo new posts/$(POST_NAME).md
 	sed -i '2s/.*/title: "$(POST_TITLE)"/' content/posts/$(POST_NAME).md
 
+lint:	## lints app before deplyment
+	golangci-lint run ./main.go
+
 stop:	## stops the application
 	pkill awesome-api
 

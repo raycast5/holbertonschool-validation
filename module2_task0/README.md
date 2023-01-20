@@ -7,6 +7,7 @@
 - install go
 
 ## Lifecycle
+- lint: lint the source code, Application should not be built if this step fails.
 - build: Generate the website from the markdown and configuration files in the directory dist/. and compile the source code of the application to a binary named awesome-api.
 - run: Run the application in background by executing the binary awesome-api, and write logs into a file named awesome.log.
 - stop: Stop the application.
